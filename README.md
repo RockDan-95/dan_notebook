@@ -20,5 +20,7 @@ This repository will be used to store some **protocol** notes. <br>
 
 <img width="161" alt="image" src="https://github.com/user-attachments/assets/41777a33-3fdd-4207-b48b-97386aa38e30">
 
->  Initilize repo
+>  Click "+"  to allow adding existing repo from GitHub.
+
+> Click *lock* icon to connect.
 
