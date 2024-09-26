@@ -113,9 +113,9 @@ Header Level 3 （Actually 2）
 * First
 - Second
 + Third
-    * Indented 1
+    - Indented 1
     - Indented 2
-    + Indented 3 
+    - Indented 3 
 
 ##### HTML style
 
