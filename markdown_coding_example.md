@@ -67,12 +67,6 @@ Header Level 3 （Actually 2）
 
 ### Header Level 3 -- Blockquotes with elements
 
-> # Line 1
-> ## Line 2
-> ### Line 3
-> #### Line 4
-> ##### Line 5
->
 > - adding a dot
 > - adding another dot
 > 
