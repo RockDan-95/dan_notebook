@@ -169,6 +169,7 @@ with backslash, the number is a number<br>\# without the backslash, the number i
 
     * Knowledge 4 - Adding a image
 
+
         <div style="text-align: right;">
 
         <img src = "/Pics/image-1.png" alt="Tux" width = 350 Height = '400'>
@@ -181,11 +182,73 @@ with backslash, the number is a number<br>\# without the backslash, the number i
 
 #### Headler Leve 4 - Code
 
-Use   `Backticks` to denote a coding.
+1. Backticks - denote a word
 
-<code>Use html language "\<code>" to conduct the same function</code>
+    - Use   `Backticks` to denote a coding.
 
-![alt text](/Pics/image-2.png#pic_center=400x)
+    - <code>Use html language "\<code>" to conduct the same function</code>
+
+        ![alt text](/Pics/image-2.png#pic_center=400x)
+
+
+2. Escaping Backticks - decode word in a code
+    
+    - double ``
+    
+        `To `demo` effect of double backticks`
+
+
+#### Headler Leve 4 - Horizontal Rules
+
+1. Three * / - / _ 
+
+    *** 
+    ---
+    ___
+
+        Code for above phenomenon:
+
+        ***
+        ---
+        ___
+
+    it will turns out to be a seperate line
+
+#### Headler Leve 4 - Links
+
+1. brackets
+
+    This is an example for using **LINKS** [BOCHK Website](https://www.bochk.com)
+
+        [BOCHK Website](https://www.bochk.com)
+
+2. Angle brackets - URL and email address
+
+    <fake@example.local><br>
+    <https://www.google.com>
+
+        <fake@example.local><br>
+        <https://www.google.com>
+
+
+3. Formatting Links
+
+    combine usage of 
+    - BOLD |** ** |  
+    - ITALIC |* *| 
+    - CODE | `  ` | , etc. 
+
+        I love supporting the **[EFF](https://eff.org)**.
+            
+            I love supporting the **[EFF](https://eff.org)**.
+
+4. Reference-style
+
+
+
+
+
+
 
 
 
