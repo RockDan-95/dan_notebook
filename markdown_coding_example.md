@@ -114,7 +114,7 @@ Header Level 3 （Actually 2）
 ##### MD style
 * First
 - Second
-+ Third
++ Third -- Avoid un-comsistancy of the symbol
     - Indented 1
     - Indented 2
     - Indented 3 
@@ -138,7 +138,7 @@ Header Level 3 （Actually 2）
 
 - 1.  is a great year
 - 2.  number become i ii/1 2
-- 2\.  
+- 2\.  "2\\." will singal \ before . will shows as character, instead of Order number or symbol. 
 
 """<br>
 \#
@@ -146,5 +146,21 @@ with backslash, the number is a number<br>\# without the backslash, the number i
 """
 
 
+#### Headler Leve 4 - Adding Elements in Lists
 
-test
+
++ first item without elements
++ second item with elements but not interrupt Order lists, by using a tab or four space in line after next line.
+
+    Adding a elements with one tab
+
++ third item with elements with two tabs. 
+
+        - Adding a elements with two tabs
+        - Adding another one
+    * Adding a mark 
+
++ fourth one to finish this test 
+
+Pic shows the coding example:
+![alt text](/Pics/image.png)
