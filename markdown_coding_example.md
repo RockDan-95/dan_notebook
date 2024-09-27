@@ -169,7 +169,7 @@ with backslash, the number is a number<br>\# without the backslash, the number i
 
     * Knowledge 4 - Adding a image
 
-        ![Tux, image](/Pics/image-1.png#pic_center=400x)
+        ![Tux, image](/Pics/image-1.png#pic_center=80x)
 
 + fourth one to finish this test 
 
