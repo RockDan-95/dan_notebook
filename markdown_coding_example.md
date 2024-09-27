@@ -357,7 +357,12 @@ Example:
 | -	| minus sign (hyphen)
 | .	| dot
 | !	| exclamation mark
-| |	| pipe (see also escaping pipe in tables)
+|  \|	| pipe (see also escaping pipe in tables)
+
+
+
+
+
 
 
 
