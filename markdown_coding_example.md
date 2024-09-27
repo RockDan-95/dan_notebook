@@ -346,7 +346,18 @@ Example:
 |---|-------------|
 | \      | Backslash   |
 |`| Backticks [Escaping Backticks in code](https://www.markdownguide.org/basic-syntax/#escaping-backticks)|
-
+| *	| asterisk
+| _	| underscore
+| { }	| curly braces
+| [ ]	| brackets
+| < >	| angle brackets
+| ( )	| parentheses
+| #	| pound sign
+| +	| plus sign
+| -	| minus sign (hyphen)
+| .	| dot
+| !	| exclamation mark
+| |	| pipe (see also escaping pipe in tables)
 
 
 
