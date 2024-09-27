@@ -242,14 +242,110 @@ with backslash, the number is a number<br>\# without the backslash, the number i
             
             I love supporting the **[EFF](https://eff.org)**.
 
-4. #### Reference-style
+4. #### Reference-style Links
+
+    Format：
+        
+    + part that keep inline
+    + part that stored swh in file to keep it easy to ready 
+
+    #####  4-1 Formatting the first part and second part
 
 
+    [bochk official website][1]
+
+    [1]: https://www.bock.com
+
+         [bochk official website][1]
+
+         [1]: https://www.bock.com
+    
+    * First \[ ]
+        
+        the name showing for link
+
+    * Second \[ ]
+
+        - label to point to the link stored already 
+
+        - the label in branket, followed by colon and at lease one space. 
+
+        - url can be enclosed in Angel Brackets. 
+
+                [2]: <https://www.bock.com>
+
+        - Optional title for the link, use quote/double quote/ branket.
+
+                [3]: <https://www.google.com> "GOOGLE title" 
+
+            [Test GOOGLE Title][3]
+             
+            [3]: <https://www.google.com> "BOCHK title" 
+
+            ![alt text](/Pics/image-URL-title.png)
 
 
+    ##### Better way to combind two parts
+
+    - Method 1 [LINK](<www.example.com> "www.example.com")
+
+    - Method 2 [LINK][4]
+
+        [4]:(www.example.com)
+
+             - Method 1 [LINK](<www.example.com> "www.example.com")
+
+             - Method 2 [LINK][4]
+
+                [4]:(www.example.com)
+    
+*  Above two methods will have the same output.
+*  Adding "www.example.com" will be shown up when you move cursor on the LINK.
+*  \<a herf="www.example.com">link\</a> can also  be used.
+    
+    - %28 - (
+    - %29 - )
+    - %20 - space
+            
+            [a novel](https://en.wikipedia.org/wiki/The_Milagro_Beanfield_War_%28novel%29)
 
 
+### Headler Leve 3 - Image
 
+#### Adding Image
+
+Example:
+        
+        ![The San Juan Mountains are beautiful!](/assets/images/san-juan-mountains.jpg "San Juan Mountains")
+
+* Markdown does not allow spefify size or captions.
+* Use HTML to resize and captions.
+
+        <figure>
+            <img src="/assets/images/albuquerque.jpg"
+         alt="Albuquerque, New Mexico">
+            <figcaption>A single track trail outside of Albuquerque, New Mexico.</figcaption>
+        </figure>
+
+#### Adding link to iamge
+
+Example:
+
+* \[ ]( ) to include \!\[ ]( )
+
+    To insert a pic, and give it a link. 
+    
+
+        [![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](https://www.flickr.com/photos/beaurogers/31833779864/in/photolist-Qv3rFw-34mt9F-a9Cmfy-5Ha3Zi-9msKdv-o3hgjr-hWpUte-4WMsJ1-KUQ8N-deshUb-vssBD-6CQci6-8AFCiD-zsJWT-nNfsgB-dPDwZJ-bn9JGn-5HtSXY-6CUhAL-a4UTXB-ugPum-KUPSo-fBLNm-6CUmpy-4WMsc9-8a7D3T-83KJev-6CQ2bK-nNusHJ-a78rQH-nw3NvT-7aq2qf-8wwBso-3nNceh-ugSKP-4mh4kh-bbeeqH-a7biME-q3PtTf-brFpgb-cg38zw-bXMZc-nJPELD-f58Lmo-bXMYG-bz8AAi-bxNtNT-bXMYi-bXMY6-bXMYv)
+   
+
+
+### Headler Leve 3 - Escaping characters
+
+| Syntax | Description | 
+|---|-------------|
+| \      | Backslash   |
+|`| Backticks [Escaping Backticks in code](https://www.markdownguide.org/basic-syntax/#escaping-backticks)|
 
 
 
