@@ -169,9 +169,10 @@ with backslash, the number is a number<br>\# without the backslash, the number i
 
     * Knowledge 4 - Adding a image
 
-        <img src = "/Pics/image-1.png#pic_center" alt="Tux" width = 200 Height = '250'>
-        
-        ![test](/Pics/image-1.png#pic_center=350x)
+    <div style = "text-align: center;">
+    <img src = "/Pics/image-1.png" alt="Tux" width = 400 Height = '450'>
+    </dev>
+    
 
 + fourth one to finish this test 
 
