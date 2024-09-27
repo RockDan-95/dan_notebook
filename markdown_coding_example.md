@@ -170,8 +170,8 @@ with backslash, the number is a number<br>\# without the backslash, the number i
     * Knowledge 4 - Adding a image
 
         <img src = "/Pics/image-1.png#pic_center" alt="Tux" width = 200 Height = '250'>
-
-        ![test-image] (/Pics/image-1.png#pic_center =300x)
+        
+        ![test](/Pics/image-1.png#pic_center=350x)
 
 + fourth one to finish this test 
 
