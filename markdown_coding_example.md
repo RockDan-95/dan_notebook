@@ -170,7 +170,9 @@ with backslash, the number is a number<br>\# without the backslash, the number i
     * Knowledge 4 - Adding a image
 
         <div style="text-align: right;">
-            <img src = "/Pics/image-1.png" alt="Tux" width = 350 Height = '400'>
+
+        <img src = "/Pics/image-1.png" alt="Tux" width = 350 Height = '400'>
+        
         </dev>
     
 
