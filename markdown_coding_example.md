@@ -168,13 +168,19 @@ with backslash, the number is a number<br>\# without the backslash, the number i
             </html>
 
     * Knowledge 4 - Adding a image
-            ![Tux, image](/Pics/image-1.png)
 
-   
+        ![Tux, image](/Pics/image-1.png)
 
 + fourth one to finish this test 
 
-Pic shows the coding example:<br>
+
+#### Headler Leve 4 - Code
+
+Use   `Backticks` to denote a coding.
+
+<code>Use html language "\<code>" to conduct the same function</code>
+
+![alt text](/Pics/image-2.png#pic_center=400x)
 
 
 
