@@ -152,15 +152,30 @@ with backslash, the number is a number<br>\# without the backslash, the number i
 + first item without elements
 + second item with elements but not interrupt Order lists, by using a tab or four space in line after next line.
 
-    Adding a elements with one tab
+    Paragraphs: Knowledge 1- Adding a elements with one tab
+    > Blockquotes: Knowledge 2- Adding a blockquotes
 
-+ third item with elements with two tabs. 
++ third item with elements with two tabs, github will shows a copy button, which is a Knowledge 3 -  **CODE Blocks**. 
 
         - Adding a elements with two tabs
         - Adding another one
-    * Adding a mark 
+        <html>
+        </html>
+
+    * Adding a mark
+
+            <html>
+            </html>
+
+    * Knowledge 4 - Adding a image
+            ![Tux, image](/Pics/image-1.png)
+
+   
 
 + fourth one to finish this test 
 
-Pic shows the coding example:
-![alt text](/Pics/image.png)
+Pic shows the coding example:<br>
+
+
+
+
