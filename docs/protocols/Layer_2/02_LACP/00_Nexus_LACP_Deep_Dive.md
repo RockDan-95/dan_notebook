@@ -1,5 +1,5 @@
-# Nexus LACP Deep Dive
-
+# LACP Deep Dive
+Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggregation-control-protocol-lacp-8023ad/221051-troubleshoot-link-aggregation-control-pr.html> "Troubleshoot Link Aggregation Control Protocol (LACP) on Nexus" ) to review Cisco Troubleshooting Guide. 
 
 ## LACP Basic
 
@@ -71,7 +71,33 @@ Link Aggregation Control Protocol Data Unit
 
 * LACP Status size in packet: 1 bytes
 
+    * Wireshake Actor State
+    ![Wireshake_LACPDU_Status](Wireshake_LACPDU_Status.png)
 
+    * LACP state in Picture: 
+        
+        10000101<br>
+        =Activity(1), Aggregation(4), Expired(128)<br>=133<br>
+        =0X85
+
+* LACP Status Caculation
+
+    * Hexadecimal Representation 
+
+        Each flag represens a specific bit in binary number. The overall state is summed by each value of active flags.
+
+    * Flags and Bit
+
+        |Flag |Bit |Decimal| Hexadecimal |Definitaion|
+        |---|---|---|---|---|
+        |Activity|0|1|0x01|LACP negotiation mode |
+        |Timeout|1|2|0x02|LACPDU send/timeout timer `lacp rate fast`|
+        |Aggregation|2|4|0x04|Aggregated if 1 is set|
+        |Sync|3|8|0x08| In Sync: Port is aggregated as a Port-Channel with proper LAD ID|
+        |Collecting|4|16|0x10|Enabled: System is ready to **Receive** packets as port-chanel member| 
+        |Distributing|5|32|0x20|Enabled: System is ready to **Transmit** packets as port-channel member|
+        |Defaulted|6|64|0x40|1- Use Default for Partner Info <br>0- Use rx LACPDU for Partner Info |
+        |Expired|7|128|0x60|1-Partner PDU Expired |
 
 
 ## LACP Time Summary
