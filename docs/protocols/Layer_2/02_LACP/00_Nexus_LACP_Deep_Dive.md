@@ -32,16 +32,28 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 
 ## LACPDU
 
-Link Aggregation Control Protocol Data Unit
+1. Link Aggregation Control Protocol Data Unit
 
 * Through LACPDU, interface enabled LACP will transmit several factor to partner
     * System Priority
     * System MAC  -> PO interface MAC, not physical interface MAC. 
     * Interface Priority
     * Interface Number
-    * Key
+    * Key -> Operational Key, represents PO Number. 
 
     ![LACPDU_Packet_format](LACPDU_Packet_format.png)
+
+
+2. LACPDU Exchange
+
+    |Phase|Action|Device-1|Device-2|
+    |---|---|---|---|
+    |1| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>![First_LACPDU](First_LACPDU.png)`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|Partner<br>`Activity=0 Timeout=0 Aggregate=0 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|
+    |2| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|Actor<br>![2nd_LACPDU](2nd_LACPDU.png)`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|
+    |3| * Dev-1 ACK Dev-2 Info | Actor<br>![3rd_Lacpdu](3rd_Lacpdu.png)<br>`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`| Partner<br>`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|
+    |4|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner|Actor|
+    |  
+
 
 
 
