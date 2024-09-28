@@ -47,12 +47,13 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 2. LACPDU Exchange
 
     |Phase|Action|Device-1|Device-2|
-    |---|---|---|---|
-    |1 `->`| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>![First_LACPDU](First_LACPDU.png)`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Partner<br>`Activity=0`<br>`Timeout=0`<br>`Aggregate=0`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |2 `<-`| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>![2nd_LACPDU](2nd_LACPDU.png)`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |3 `->`| * Dev-1 ACK Dev-2 Info | Actor<br>![3rd_Lacpdu](3rd_Lacpdu.png)<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`| Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |4 `<-`|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner|Actor|
-    |  
+    |---|---|:---:|:---:|
+    |1 `->`| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![First_LACPDU](First_LACPDU.png)|Partner<br>`Activity=0`<br>`Timeout=0`<br>`Aggregate=0`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |2 `<-`| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![2nd_LACPDU](2nd_LACPDU.png)|
+    |3 `->`| * Dev-1 ACK Dev-2 Info | Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![3rd_Lacpdu](3rd_Lacpdu.png)| Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |4 `<-`|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![4th_LACPDU](4th_LACPDU.png)|
+    |5 `->`|<ul><li>Dev-1 acks Dev-2 SYNC</li></ul><br><ul><li>Dev-1 SYNC set 1 in its own actor </li></ul>|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`![5th_LACPDU](5th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |6 `<-`|<ul><li>Dev-2 acks Dev-1 SYNC</li></ul><br><ul><li>Dev-1 Collect set 1 in its own actor </li></ul>|Partner|Actor|
 
 
 
