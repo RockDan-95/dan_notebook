@@ -72,7 +72,8 @@ Link Aggregation Control Protocol Data Unit
 * LACP Status size in packet: 1 bytes
 
     * Wireshake Actor State
-    ![Wireshake_LACPDU_Status](Wireshake_LACPDU_Status.png)
+
+        ![Wireshake_LACPDU_Status](Wireshake_LACPDU_Status.png)
 
     * LACP state in Picture: 
         
@@ -91,9 +92,9 @@ Link Aggregation Control Protocol Data Unit
         |Flag |Bit |Decimal| Hexadecimal |Definitaion|
         |---|---|---|---|---|
         |Activity|0|1|0x01|LACP negotiation mode |
-        |Timeout|1|2|0x02|LACPDU send/timeout timer `lacp rate fast`|
+        |Timeout|1|2|0x02|LACPDU send/timeout timer `lacp rate fast`<br>short*: timeout 3 sec(tx 1 sec) <br> long: 90 sec (tx 30 sec) |
         |Aggregation|2|4|0x04|Aggregated if 1 is set|
-        |Sync|3|8|0x08| In Sync: Port is aggregated as a Port-Channel with proper LAD ID|
+        |Sync|3|8|0x08| In Sync: Port is aggregated as a Port-Channel with proper LAD ID <br> Out of Sync: No PDU is synced |
         |Collecting|4|16|0x10|Enabled: System is ready to **Receive** packets as port-chanel member| 
         |Distributing|5|32|0x20|Enabled: System is ready to **Transmit** packets as port-channel member|
         |Defaulted|6|64|0x40|1- Use Default for Partner Info <br>0- Use rx LACPDU for Partner Info |
