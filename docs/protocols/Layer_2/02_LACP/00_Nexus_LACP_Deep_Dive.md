@@ -22,6 +22,7 @@
         * Conditions:
             * Not receive LACPDU
             * Link failed at LACP nego
+
     ![LACP Link Status](lacp_link_status.png)
 
 
