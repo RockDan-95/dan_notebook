@@ -10,6 +10,7 @@
         * Connected Port-Channel Interfaces
     * Hot-Standby Link
         * rx/tx packets: no data packets
+        * LACP allows max of 16 ports in a port-channel group, but only 8 can be active at a given time. NON-ACTIVE links in an LACP bundle are placed in HOT-STANDBY. Any active turns inactive, one hot standby will move to active. 
         * Conditions:
             * Link Limited by max-bundle 
         * vPC Condition:
