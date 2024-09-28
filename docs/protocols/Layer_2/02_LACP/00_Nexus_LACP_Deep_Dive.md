@@ -48,10 +48,10 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 
     |Phase|Action|Device-1|Device-2|
     |---|---|---|---|
-    |1| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>![First_LACPDU](First_LACPDU.png)`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|Partner<br>`Activity=0 Timeout=0 Aggregate=0 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|
-    |2| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|Actor<br>![2nd_LACPDU](2nd_LACPDU.png)`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|
-    |3| * Dev-1 ACK Dev-2 Info | Actor<br>![3rd_Lacpdu](3rd_Lacpdu.png)<br>`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`| Partner<br>`Activity=1 Timeout=1 Aggregate=1 Sync=0 Collecting=0 Distributing=0 Default=0 Expired=0`|
-    |4|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner|Actor|
+    |1 `->`| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>![First_LACPDU](First_LACPDU.png)`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Partner<br>`Activity=0`<br>`Timeout=0`<br>`Aggregate=0`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |2 `<-`| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>![2nd_LACPDU](2nd_LACPDU.png)`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |3 `->`| * Dev-1 ACK Dev-2 Info | Actor<br>![3rd_Lacpdu](3rd_Lacpdu.png)<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`| Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |4 `<-`|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner|Actor|
     |  
 
 
