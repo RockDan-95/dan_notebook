@@ -44,7 +44,7 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
     ![LACPDU_Packet_format](LACPDU_Packet_format.png)
 
 
-2. LACPDU Exchange
+2. [LACPDU Exchange](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggregation-control-protocol-lacp-8023ad/221051-troubleshoot-link-aggregation-control-pr.html> "Troubleshoot Link Aggregation Control Protocol (LACP) on Nexus")
 
     |Phase|Action|Device-1|Device-2|
     |---|---|:---:|:---:|
@@ -53,7 +53,12 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
     |3 `->`| * Dev-1 ACK Dev-2 Info | Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![3rd_Lacpdu](3rd_Lacpdu.png)| Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
     |4 `<-`|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![4th_LACPDU](4th_LACPDU.png)|
     |5 `->`|<ul><li>Dev-1 acks Dev-2 SYNC</li></ul><br><ul><li>Dev-1 SYNC set 1 in its own actor </li></ul>|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`![5th_LACPDU](5th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |6 `<-`|<ul><li>Dev-2 acks Dev-1 SYNC</li></ul><br><ul><li>Dev-1 Collect set 1 in its own actor </li></ul>|Partner|Actor|
+    |6 `<-`|<ul><li>Dev-2 acks Dev-1 SYNC</li></ul><br><ul><li>Dev-1 ***Collect*** set 1 in its own actor </li></ul>|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![6th_LACPDU](6th_LACPDU.png)|
+    |7 `->`|<ul><li>Dev-1 acks Dev-2 ***Collect*** from Dev-2</li><br><li>Dev-1 add ***Collect*** set 1 in its own actor </li></ul>|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![7th_LACPDU](7th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |8 `->`|<ul><li>Dev-1 decides ready to transition to distribute state </li><br><li>Then Dev-1 set its ***Timeout*** from 1 (fast) to 0 (slow) and ***Distribute*** to 1 </li></ul>|Actor<br>`Activity=1`<br>*`Timeout=0`*<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>*`Distributing=1`*<br>`Default=0`<br>`Expired=0`![8th_LACPDU](8th_LACPDU.png)|Partner<br>`Activity=1`<br>*`Timeout=1`*<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |9 `<-`|<ul><li>Dev-2 ack Dev's timeout=0 and Distribute=1</li><br><li>Dev-2 response with its own Timeout=0 and Distribute=1 </li><li>At this moment, both device are ready to send data on PO</li></ul>|Partner<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`<br>![9th_LACPDU](9th_LACPDU.png)|
+    |10 `->`|<ul><li>Dev-1 ack Dev-2's LACPDU</li><br><li>At this moment PO will transit to UP</li></ul>|Actor<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`<br>![10th_LACPDU](10th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+
 
 
 
