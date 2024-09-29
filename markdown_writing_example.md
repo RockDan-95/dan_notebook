@@ -354,7 +354,16 @@ Example:
 |  \|	| pipe (see also escaping pipe in tables)
 
 
-
+如果你是用vscode的话, 可以装几个extension:
+1. diff - 如果有更新, 可以用来对比两个版本的差异
+2. indent-rainbow - 用来区分不同层级的空格
+3. markmap - 用思维导图的方式显示markdown
+4. Trailing Spaces - 检测尾部多余空格
+5. XML formatter - 格式化xml
+6. Json formatter - 格式化json
+7. ruff - 一键修正格式问题, 比如写文档或者代码的多余换行, 空格之类的, 我最近很依赖这个
+8. Code Spell Checker - 检查拼写问题
+9. Better Comments - 更好的显示注释
 
 
 
