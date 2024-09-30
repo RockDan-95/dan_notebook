@@ -5,7 +5,17 @@
 Header Level 1
 ==========
 
+[Give text color](https://docs.document360.com/docs/how-to-change-the-color-of-the-text-in-markdown "How to change the color of the text in markdown"):
 
+<span style="color:red">
+
+use below code to make text color:
+        
+    <span style="color:red">
+    use below code to make text color:
+    </span>
+
+</span>
 
 ## Header Level 2
 
