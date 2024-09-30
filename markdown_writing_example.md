@@ -17,6 +17,26 @@ use below code to make text color:
 
 </span>
 
+<code style="color:blue">
+    Change text in blue
+
+    <code style="color:blue">
+    Change text in blue
+    </code>
+
+</code>
+
+<code style="color:blue">
+    `Change text in blue`
+</code>
+
+
+`test`
+<code>test</code>
+
+
+
+
 ## Header Level 2
 
 Header Level 3 （Actually 2） 
