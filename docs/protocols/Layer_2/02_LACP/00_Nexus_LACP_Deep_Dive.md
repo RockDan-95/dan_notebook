@@ -28,7 +28,6 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 
 
 
-
 ## LACPDU
 
 1. Link Aggregation Control Protocol Data Unit
@@ -47,7 +46,7 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 
     |Phase|Action|Device-1|Device-2|
     |---|---|:---:|:---:|
-    |1 `->`| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br><span style="color: blue">`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`</span><br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![First_LACPDU](First_LACPDU.png)|Partner<br>`Activity=0`<br>`Timeout=0`<br>`Aggregate=0`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |1 `->`| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![First_LACPDU](First_LACPDU.png)|Partner<br>`Activity=0`<br>`Timeout=0`<br>`Aggregate=0`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
     |2 `<-`| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![2nd_LACPDU](2nd_LACPDU.png)|
     |3 `->`| * Dev-1 ACK Dev-2 Info | Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![3rd_Lacpdu](3rd_Lacpdu.png)| Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
     |4 `<-`|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![4th_LACPDU](4th_LACPDU.png)|
