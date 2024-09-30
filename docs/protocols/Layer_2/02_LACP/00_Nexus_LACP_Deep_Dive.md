@@ -25,7 +25,7 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
             * Link failed at LACP nego
 
     ![LACP Port Status](lacp_port_status.png)
-
+![](assets/2024-09-30-16-01-20.png)
 
 
 ## LACPDU
