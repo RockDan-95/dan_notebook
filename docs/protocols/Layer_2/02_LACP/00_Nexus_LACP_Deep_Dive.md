@@ -24,7 +24,7 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
             * Not receive LACPDU
             * Link failed at LACP nego
 
-    ![LACP Port Status](lacp_port_status.png)
+    ![LACP Port Status](assets/lacp_port_status.png)
 
 
 
@@ -39,23 +39,23 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
     * Interface Number
     * Key -> Operational Key, represents PO Number. 
 
-    ![LACPDU_Packet_format](LACPDU_Packet_format.png)
+    ![LACPDU_Packet_format](assets/LACPDU_Packet_format.png)
 
 
 2. [LACPDU Exchange](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggregation-control-protocol-lacp-8023ad/221051-troubleshoot-link-aggregation-control-pr.html> "Troubleshoot Link Aggregation Control Protocol (LACP) on Nexus")
 
     |Phase|Action|Device-1|Device-2|
     |---|---|:---:|:---:|
-    |1 `->`| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![First_LACPDU](First_LACPDU.png)|Partner<br>`Activity=0`<br>`Timeout=0`<br>`Aggregate=0`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |2 `<-`| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![2nd_LACPDU](2nd_LACPDU.png)|
-    |3 `->`| * Dev-1 ACK Dev-2 Info | Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![3rd_Lacpdu](3rd_Lacpdu.png)| Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |4 `<-`|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![4th_LACPDU](4th_LACPDU.png)|
-    |5 `->`|<ul><li>Dev-1 acks Dev-2 SYNC</li></ul><br><ul><li>Dev-1 SYNC set 1 in its own actor </li></ul>|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`![5th_LACPDU](5th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |6 `<-`|<ul><li>Dev-2 acks Dev-1 SYNC</li></ul><br><ul><li>Dev-1 ***Collect*** set 1 in its own actor </li></ul>|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![6th_LACPDU](6th_LACPDU.png)|
-    |7 `->`|<ul><li>Dev-1 acks Dev-2 ***Collect*** from Dev-2</li><br><li>Dev-1 add ***Collect*** set 1 in its own actor </li></ul>|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![7th_LACPDU](7th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |8 `->`|<ul><li>Dev-1 decides ready to transition to distribute state </li><br><li>Then Dev-1 set its ***Timeout*** from 1 (fast) to 0 (slow) and ***Distribute*** to 1 </li></ul>|Actor<br>`Activity=1`<br>*`Timeout=0`*<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>*`Distributing=1`*<br>`Default=0`<br>`Expired=0`![8th_LACPDU](8th_LACPDU.png)|Partner<br>`Activity=1`<br>*`Timeout=1`*<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
-    |9 `<-`|<ul><li>Dev-2 ack Dev's timeout=0 and Distribute=1</li><br><li>Dev-2 response with its own Timeout=0 and Distribute=1 </li><li>At this moment, both device are ready to send data on PO</li></ul>|Partner<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`<br>![9th_LACPDU](9th_LACPDU.png)|
-    |10 `->`|<ul><li>Dev-1 ack Dev-2's LACPDU</li><br><li>At this moment PO will transit to UP</li></ul>|Actor<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`<br>![10th_LACPDU](10th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |1 `->`| * Dev-1 send first actor LACPDU with state bits<br>*Partner info all set as 0|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![First_LACPDU](assets/First_LACPDU.png)|Partner<br>`Activity=0`<br>`Timeout=0`<br>`Aggregate=0`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |2 `<-`| * Dev-2 receive Dev-1's LACPDU<br>* Dev-2 response LACPDU with its own info in Actor part and ACK Dev-1's info.|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![2nd_LACPDU](assets/2nd_LACPDU.png)|
+    |3 `->`| * Dev-1 ACK Dev-2 Info | Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![3rd_Lacpdu](assets/3rd_Lacpdu.png)| Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |4 `<-`|* Dev-2 receive ACK<br>* Dev-2 send LACPDU with sync=1|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=0`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![4th_LACPDU](assets/4th_LACPDU.png)|
+    |5 `->`|<ul><li>Dev-1 acks Dev-2 SYNC</li></ul><br><ul><li>Dev-1 SYNC set 1 in its own actor </li></ul>|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`![5th_LACPDU](assets/5th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |6 `<-`|<ul><li>Dev-2 acks Dev-1 SYNC</li></ul><br><ul><li>Dev-1 ***Collect*** set 1 in its own actor </li></ul>|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=0`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![6th_LACPDU](assets/6th_LACPDU.png)|
+    |7 `->`|<ul><li>Dev-1 acks Dev-2 ***Collect*** from Dev-2</li><br><li>Dev-1 add ***Collect*** set 1 in its own actor </li></ul>|Actor<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`<br>![7th_LACPDU](assets/7th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=1`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |8 `->`|<ul><li>Dev-1 decides ready to transition to distribute state </li><br><li>Then Dev-1 set its ***Timeout*** from 1 (fast) to 0 (slow) and ***Distribute*** to 1 </li></ul>|Actor<br>`Activity=1`<br>*`Timeout=0`*<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>*`Distributing=1`*<br>`Default=0`<br>`Expired=0`![8th_LACPDU](assets/8th_LACPDU.png)|Partner<br>`Activity=1`<br>*`Timeout=1`*<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
+    |9 `<-`|<ul><li>Dev-2 ack Dev's timeout=0 and Distribute=1</li><br><li>Dev-2 response with its own Timeout=0 and Distribute=1 </li><li>At this moment, both device are ready to send data on PO</li></ul>|Partner<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`|Actor<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`<br>![9th_LACPDU](assets/9th_LACPDU.png)|
+    |10 `->`|<ul><li>Dev-1 ack Dev-2's LACPDU</li><br><li>At this moment PO will transit to UP</li></ul>|Actor<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=1`<br>`Default=0`<br>`Expired=0`<br>![10th_LACPDU](assets/10th_LACPDU.png)|Partner<br>`Activity=1`<br>`Timeout=0`<br>`Aggregate=1`<br>`Sync=1`<br>`Collecting=1`<br>`Distributing=0`<br>`Default=0`<br>`Expired=0`|
 
 
 
@@ -68,7 +68,7 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 * System Identifier = <span style="color: green">**[System Priority + System MAC]**</span>
 * Smaller *System Identifier* is in front. 
 
-    ![LAG_ID](LAG_ID.png)
+    ![LAG_ID](assets/LAG_ID.png)
 
 ## LACP Status
 
@@ -89,7 +89,7 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 
     * Wireshake Actor State
 
-        ![Wireshake_LACPDU_Status](Wireshake_LACPDU_Status.png)
+        ![Wireshake_LACPDU_Status](assets/Wireshake_LACPDU_Status.png)
 
     * LACP state in Picture: 
         
