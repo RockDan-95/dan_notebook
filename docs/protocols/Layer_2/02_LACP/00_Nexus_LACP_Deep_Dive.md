@@ -153,3 +153,10 @@ Click [HERE](<https://www.cisco.com/c/en/us/support/docs/lan-switching/link-aggr
 ## LACP suspend-individual
 
 ## LACP and vPC
+
+
+
+
+
+
+[1]:(https://www.ieee802.org/1/files/public/docs2018/ax-seaman-lacp-suggestions-0118-02.pdf)
