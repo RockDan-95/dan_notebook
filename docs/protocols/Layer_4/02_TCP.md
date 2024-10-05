@@ -183,10 +183,24 @@ PCAP of TCP Header:
         * Next two fields' value is determined by this field.
     * Option-length
         * 1 byte
-        * Indicate the total length of OPTION
+        * Indicate the total length of OPTION， including OPTION-KIND and OPTION-Length
     * Option-data
         * Size Variable
         * Contains data associated to Option. 
+
+
+    |OPTION-KIND|OPTION-LENGTH|OPTION-DATA|Purpose|Notes|
+    |---|---|---|---|---|
+    |0|-|-|End of option list||
+    |1|1|-|No-Operation|1. Align options fields on 32-bit boundaries<br>2. Only for padding<br>3. No Operation Option<br>4. 1-byte <br>5. does not have OPTION-Length or Option-Data<br>![](assets/2024-10-04-12-49-31.png)|
+    |2|4|SS|MSS<br>Maximum Segment Size|ONLY BE SENT when `SYN` is set![](assets/2024-10-05-09-31-35.png)<br>[MSS](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Maximum_segment_size)|
+    |3|3|S|Window Scale|ONLY BE SENT when `SYN` is set|
+    |4|2|-|Selective Achnowledgement||
+    |5|N(10,18,26,or,34)|BBBB,EEEE,....|Selective ACKnowledgement<br>SACK||
+    |8|10|TTTT,EEEE|Timestamp and echo of previous timestamp||
+    |28|4|-|User Timeout Option||
+    |29|N|-|TCP Authentication Option(TCP-AO)||
+    |30|N|-|Multipath TCP||
 
 
 #### Data
