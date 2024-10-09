@@ -369,9 +369,26 @@ Main TCP streams has two types:
 
 ### Interactive Stream
 
+Interactive Stream is like to login to telnet, type in command letter by letter;
 
+When you type a command, ***four*** packets will be generated for each letter:
+* Each letter will become a packet and send to server, 
+* which will result server ACK each letter, 
+* and when the display shows the typed letter, this will also be formed as a packet send back to client, 
+* and client will then ACK the display.
+
+
+### TCP delayed acknowledgment 
+
+* [Delayed ACK][4-Dealayed_ACK] in wifi
+* Not ack each packet, wait for several amount of packets to be received and ACK together.
+* **Limitation**
+    * Maximum wait time : 200ms
 
 ### Nagle Argorithm
+
+* 
+![](assets/2024-10-08-15-13-34.png)
 
 ## TCP Sliding Window
 
@@ -406,3 +423,4 @@ Main TCP streams has two types:
 [1]:[https://www.rfc-editor.org/rfc/rfc7560.txt]
 [2]:[https://datatracker.ietf.org/doc/html/rfc3168]
 [3:MSL]:[https://en.wikipedia.org/wiki/Maximum_segment_lifetime]
+[4-Dealayed_ACK]:[https://en.wikipedia.org/wiki/TCP_delayed_acknowledgment]
