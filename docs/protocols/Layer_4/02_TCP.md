@@ -390,6 +390,7 @@ When you type a command, ***four*** packets will be generated for each letter:
 * 
 ![](assets/2024-10-08-15-13-34.png)
 
+
 ## TCP Sliding Window
 
 ### Windows Size
