@@ -387,8 +387,34 @@ When you type a command, ***four*** packets will be generated for each letter:
 
 ### Nagle Argorithm
 
-* 
-![](assets/2024-10-08-15-13-34.png)
+* Defined by John Nagle while working for *Ford Aerospace*
+* Means of improving effciency of TCP/IP netwokrs, by reducing number of packets 
+    * press button will generate 1 byte of data
+    * the small data will be encapsulated with 40 bytes of headers
+    * congestion occurs
+* [Nagle Algorithm][5] works by:
+    * combine a number of small outgoing message
+    * send them all at once. 
+
+    ![](assets/2024-10-08-15-13-34.png)
+
+#### Algorithm
+
+* Pseudocode [fake code] for Algorithm  -  demo for logic
+    ```
+    if there is new data to send then
+        if the window size ≥ MSS and available data is ≥ MSS then
+            send complete MSS segment now
+        else
+            if there is unconfirmed data still in the pipe then
+                enqueue data in the buffer until an acknowledge is received
+            else
+                send data immediately
+            end if
+        end if
+    end if
+    ```
+
 
 ## TCP Sliding Window
 
@@ -424,3 +450,4 @@ When you type a command, ***four*** packets will be generated for each letter:
 [2]:[https://datatracker.ietf.org/doc/html/rfc3168]
 [3:MSL]:[https://en.wikipedia.org/wiki/Maximum_segment_lifetime]
 [4-Dealayed_ACK]:[https://en.wikipedia.org/wiki/TCP_delayed_acknowledgment]
+[5]:[https://en.wikipedia.org/wiki/Nagle%27s_algorithm]
